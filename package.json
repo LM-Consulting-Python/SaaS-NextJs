@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.10",
     "@types/nodemailer": "^6.4.17",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.0.7",
