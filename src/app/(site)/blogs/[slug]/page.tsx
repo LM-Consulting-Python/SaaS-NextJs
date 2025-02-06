@@ -9,10 +9,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata(props: Props) {
+  const params = await props.params;
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
   const post = getPostBySlug(params.slug, [
     "title",
@@ -64,7 +65,8 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
-export default async function Post({ params }: Props) {
+export default async function Post(props: Props) {
+  const params = await props.params;
   const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
   const post = getPostBySlug(params.slug, [
     "title",
